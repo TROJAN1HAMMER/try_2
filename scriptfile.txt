@@ -45,3 +45,21 @@ pipeline {
         }
     }
 }
+
+
+C:\Users\ASUS>kubectl get pods
+NAME                                   READY   STATUS    RESTARTS      AGE
+html-app-65dc576474-fk56w              1/1     Running   0             22m
+node-app-6d77688bb5-9c4j4              1/1     Running   0             41s
+quiz-app-deployment-78bc6bdffb-kvs9v   2/2     Running   2 (32m ago)   38h
+
+C:\Users\ASUS>kubectl get svc
+NAME               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+html-service       NodePort    10.96.146.190   <none>        80:30008/TCP     17m
+kubernetes         ClusterIP   10.96.0.1       <none>        443/TCP          40h
+node-service       NodePort    10.96.15.210    <none>        3000:30009/TCP   50s
+quiz-app-service   NodePort    10.96.231.123   <none>        3001:30007/TCP   39h
+
+C:\Users\ASUS>kubectl port-forward deployment/node-app 8082:3000
+Forwarding from 127.0.0.1:8082 -> 3000
+Forwarding from [::1]:8082 -> 3000
